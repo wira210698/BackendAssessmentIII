@@ -1,0 +1,483 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Backend Assessment III Api Documentation ",
+        "version": "1",
+        "description": "PT. Kledo Berhati Nyaman",
+        "contact": {
+            "name": "I Putu Putra Wiranata",
+            "email": "wiranataputra21@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "description": "Todolist Restful Api Server",
+            "url": "https://localhost:8000/api"
+        }
+    ],
+    "paths": {
+
+        "/settings":{
+            "patch":{
+                "tags": ["Setting"],
+                "summary": "Mengubah data `settings`.",
+                "description": "Mengubah data `settings`dan menyimpannya di database",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/SettingSchemas"
+                            },
+                            "examples": {
+                                "Setting":{
+                                    "description": "Example body request Setting",
+                                    "value":{
+                                        "key":"overtime_method",
+                                        "value":1
+
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success Create Todolist",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "errors":{
+                                            "type": "boolean",
+                                            "description": "error condition ",
+                                            "default":true
+                                        },
+                                        "message":{
+                                            "type": "string",
+                                            "description": "message create data is success"
+                                        }
+                                    }
+                                },
+                                "examples":{
+                                    "success":{
+                                        "description": "example responses success",
+                                        "value":{
+                                            "errors":false,
+                                            "message":" Data Todolist is success created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "fail Create Todolist",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "errors":{
+                                            "type": "boolean",
+                                            "description": "error condition ",
+                                            "default":true
+                                        },
+                                        "message":{
+                                            "type": "string",
+                                            "description": "message create data is fail"
+                                        }
+                                    }
+                                },
+                                "examples":{
+                                    "fail":{
+                                        "description": "example responses fail",
+                                        "value":{
+                                            "errors":true,
+                                            "message":" Data Todolist is fail created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "/employees":{
+            "post":{
+                "tags": ["Employee"],
+                "summary": "Membuat data `employees`.",
+                "description": "Membuat data `employees`dan menyimpannya di database",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/EmployeeSchemas"
+                            },
+                            "examples": {
+                                "Setting":{
+                                    "description": "Example body request Employee",
+                                    "value":{
+                                        "Name":"Putra Wiranata",
+                                        "value":4800000
+
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success Create Todolist",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "errors":{
+                                            "type": "boolean",
+                                            "description": "error condition ",
+                                            "default":true
+                                        },
+                                        "message":{
+                                            "type": "string",
+                                            "description": "message create data is success"
+                                        }
+                                    }
+                                },
+                                "examples":{
+                                    "success":{
+                                        "description": "example responses success",
+                                        "value":{
+                                            "errors":false,
+                                            "message":" Data Todolist is success created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "fail Create Todolist",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "errors":{
+                                            "type": "boolean",
+                                            "description": "error condition ",
+                                            "default":true
+                                        },
+                                        "message":{
+                                            "type": "string",
+                                            "description": "message create data is fail"
+                                        }
+                                    }
+                                },
+                                "examples":{
+                                    "fail":{
+                                        "description": "example responses fail",
+                                        "value":{
+                                            "errors":true,
+                                            "message":" Data Todolist is fail created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "/overtimes":{
+            "post":{
+                "tags": ["Overtime"],
+                "summary": "Membuat data `employees`.",
+                "description": "Membuat data `employees`dan menyimpannya di database",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/OvertimeSchemas"
+                            },
+                            "examples": {
+                                "Setting":{
+                                    "description": "Example body request Overtime",
+                                    "value":{
+                                        "employee_id":"1",
+                                        "date":"2022/11/01",
+                                        "time_started":"18:00:00",
+                                        "time_ended":"19:00:00"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success Create Todolist",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "errors":{
+                                            "type": "boolean",
+                                            "description": "error condition ",
+                                            "default":true
+                                        },
+                                        "message":{
+                                            "type": "string",
+                                            "description": "message create data is success"
+                                        }
+                                    }
+                                },
+                                "examples":{
+                                    "success":{
+                                        "description": "example responses success",
+                                        "value":{
+                                            "errors":false,
+                                            "message":" Data Todolist is success created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "fail Create Todolist",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "errors":{
+                                            "type": "boolean",
+                                            "description": "error condition ",
+                                            "default":true
+                                        },
+                                        "message":{
+                                            "type": "string",
+                                            "description": "message create data is fail"
+                                        }
+                                    }
+                                },
+                                "examples":{
+                                    "fail":{
+                                        "description": "example responses fail",
+                                        "value":{
+                                            "errors":true,
+                                            "message":" Data Todolist is fail created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "/overtime-pays/calculate":{
+            "get":{
+                "tags": ["Overtime Pay"],
+                "summary": "Menampilkan hasil perhitungan dari `overtimes` yang ada pada setiap `employees`, berdasarkan bulan .",
+                "description": "Menampilkan hasil perhitungan dari `overtimes` yang ada pada setiap `employees`, berdasarkan bulan yang ditentukan, tanpa format pagination.",
+                "parameters": [
+                    {
+                        "name": "month",
+                        "description": "Bulan dari perhitungan overtimes",
+                        "required": false,
+                        "in": "query",
+                        "schema":{
+                            "type": "boolean",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "Success Get Overtime Pay",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type": "object",
+                                        "properties": {
+                                            "id":{
+                                                "type": "integer",
+                                                "nullable": false
+                                            },
+                                            "name":{
+                                                "type": "string",
+                                                "required": true,
+                                                "minLength": 1
+                                            },
+                                            "salary":{
+                                                "type": "integer",
+                                                "required": true
+                                            },
+                                            "overtimes":{
+                                                "type": "array",
+                                                "minItems": 1,
+                                                "items":{
+                                                    "type": "string",
+                                                    "minItems": 1
+                                                }
+                                            },
+                                            "overtime_duration_total":{
+                                                "type": "integer",
+                                                "description": "akumulasi `overtime_duration"
+                                            },
+                                            "amount":{
+                                                "type": "integer",
+                                                "description": "perhitungan upah yang diterima sesuai pengaturan `overtime_method` di `settings`"
+                                            }
+                                            
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Success":{
+                                        "description": "Example success get all todolist",
+                                        "value":[
+                                            {
+                                                "id":"1",
+                                                "name":"Putra Wiranata",
+                                                "salary":4800000,
+                                                "overtimes":[
+                                                    {
+                                                        "id":"1",
+                                                        "date":"2022/11/01",
+                                                        "time_started":"18:00:00",
+                                                        "time_ended":"19:00:00",
+                                                        "overtime_duration":"1 jam"
+                                                    }
+                                                ],
+                                                "overtime_duration_total":"1 jam",
+                                                "amount":4500000
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "Fail  Get Overtime Pay",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "errors":{
+                                            "type": "boolean",
+                                            "description": "error condition ",
+                                            "default":true
+                                        },
+                                        "message":{
+                                            "type": "string",
+                                            "description": "message create data is fail"
+                                        }
+                                    }
+                                },
+                                "examples":{
+                                    "fail":{
+                                        "description": "example responses fail",
+                                        "value":{
+                                            "errors":true,
+                                            "message":" Data Overtime is fail to get"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+    },
+    "components": {
+        "schemas": {
+            "SettingSchemas":{
+                "type": "object",
+                "properties": {
+                    "key":{
+                        "type": "string",
+                        "required": true,
+                        "minLength": 1,
+                        "default":"overtime_method"
+                    },
+                    "value":{
+                        "type": "integer",
+                        "required": true,
+                        "minLength": 1
+                    }
+                    
+                }
+            },
+            "OvertimeSchemas":{
+                "type": "object",
+                "properties": {
+                    "employee_id":{
+                        "type": "integer",
+                        "required": true,
+                        "minLength": 1
+                    },
+                    "date":{
+                        "type": "date",
+                        "required": true,
+                        "minLength": 1
+                    },
+                    "time_started":{
+                        "type": "time",
+                        "required": true,
+                        "minLength": 1
+                    },
+                    "time_ended":{
+                        "type": "time",
+                        "required": true,
+                        "minLength": 1
+                    }
+                    
+                }
+            },
+            "EmployeeSchemas":{
+                "type": "object",
+                "properties": {
+                    "name":{
+                        "type": "string",
+                        "required": true,
+                        "minLength": 1
+                    },
+                    "salary":{
+                        "type": "integer",
+                        "required": true,
+                        "minLength": 1
+                    }
+                    
+                }
+            }
+        },
+        "examples": {
+            
+        }
+
+    }
+}
